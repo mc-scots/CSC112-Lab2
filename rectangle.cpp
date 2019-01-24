@@ -4,6 +4,8 @@
 #include "term.h"
 #include "rectangle.h"
 
+//Rectangle functions by Luke Koch, Jinming Chen and Austin Vinyard
+
 using namespace std;
 
 Rectangle::Rectangle()

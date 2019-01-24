@@ -1,4 +1,5 @@
-//Rectangle class, draw a rectangle between two points!
+//Rectangle class, draw a rectangle between two points 
+//by Luke Koch, Jinming Chen, Austin Vinyard
 #ifndef RECTANGLE_H
 #define RECTANGLE_H
 #include "shape.h"
