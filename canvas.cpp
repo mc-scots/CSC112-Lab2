@@ -5,6 +5,7 @@
 #include "term.h"
 #include "point.h"
 #include "line.h"
+#include "rectangle.h"
 
 using namespace std;
 
@@ -71,9 +72,16 @@ Canvas::handleEvent(Event *e)
 		cursorAddPoint();
 	    }
 	    break;
-        case ESC:
-            if(_parent) ((Application*)_parent)->running(false);
-            break;
+    case 'R':
+    case 'r':            
+	    if(working == nullptr) {
+		working = new Rectangle();
+		cursorAddPoint();
+	    }
+	    break;
+    case ESC:
+        if(_parent) ((Application*)_parent)->running(false);
+        break;            
         }
         display();
     }
