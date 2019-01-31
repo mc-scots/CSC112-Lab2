@@ -77,6 +77,8 @@ Canvas::handleEvent(Event *e)
     case 's':            
 	    if(working == nullptr) {
 		working = new Square();
+		cursorAddPoint();
+	    }
     case 'R':
     case 'r':            
 	    if(working == nullptr) {

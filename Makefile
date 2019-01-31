@@ -1,6 +1,6 @@
 CC=g++
 CXXFLAGS=--std=c++11 -g
-WIDGET_LIB=wi
+WIDGET_LIB=widget.o term.o application.o keystream.o
 SHAPE_LIB=point.o line.o rectangle.o square.o
 TARGETS=shapes
 
