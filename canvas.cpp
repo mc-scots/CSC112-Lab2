@@ -5,7 +5,7 @@
 #include "term.h"
 #include "point.h"
 #include "line.h"
-
+#include "square.h"
 using namespace std;
 
 //constructors
@@ -71,14 +71,20 @@ Canvas::handleEvent(Event *e)
 		cursorAddPoint();
 	    }
 	    break;
-        case ESC:
-            if(_parent) ((Application*)_parent)->running(false);
-            break;
+    case 'S':
+    case 's':            
+	    if(working == nullptr) {
+		working = new Square();
+		cursorAddPoint();
+	    }
+	    break;
+    case ESC:
+        if(_parent) ((Application*)_parent)->running(false);
+        break;            
         }
         display();
     }
 }
-
 
 
 //some parenting magic
