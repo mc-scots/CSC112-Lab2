@@ -5,6 +5,7 @@
 #include "term.h"
 #include "point.h"
 #include "line.h"
+#include "square.h"
 #include "rectangle.h"
 
 using namespace std;
@@ -72,6 +73,10 @@ Canvas::handleEvent(Event *e)
 		cursorAddPoint();
 	    }
 	    break;
+    case 'S':
+    case 's':            
+	    if(working == nullptr) {
+		working = new Square();
     case 'R':
     case 'r':            
 	    if(working == nullptr) {
@@ -86,7 +91,6 @@ Canvas::handleEvent(Event *e)
         display();
     }
 }
-
 
 
 //some parenting magic
