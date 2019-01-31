@@ -1,3 +1,4 @@
+//Authors: Colwyn, Ahmed, Aaron, Emily
 #include <iostream>
 #include <cmath>
 #include "shape.h"
