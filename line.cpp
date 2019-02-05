@@ -38,7 +38,7 @@ Line::display()
 	dy /= steps;
     }
 
-	  
+
     //we'll rig the game by drawing the end point
     cout << cursorPosition(ex(), ey()) << "#";
 
@@ -88,7 +88,7 @@ Line::addPoint(int _x, int _y)
 
     //we added a point!
     pointCount++;
-    
+
 }
 
 
