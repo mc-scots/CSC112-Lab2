@@ -7,6 +7,7 @@
 #include "line.h"
 #include "square.h"
 #include "rectangle.h"
+#include "circle.h"
 
 using namespace std;
 
@@ -24,7 +25,7 @@ Canvas::Canvas()
 
 
 //required widget function
-void 
+void
 Canvas::display()
 {
     //display the shapes
@@ -36,7 +37,7 @@ Canvas::display()
 }
 
 
-void 
+void
 Canvas::handleEvent(Event *e)
 {
     KeyboardEvent *kb;
@@ -44,65 +45,74 @@ Canvas::handleEvent(Event *e)
     if(e->type() == "keyboard") {
         kb = (KeyboardEvent*) e;
         switch(kb->key()) {
-        case UP:
-            cursorUp();
-            break;
-        case DOWN:
-            cursorDown();
-            break;
-        case LEFT:
-            cursorLeft();
-            break;
-        case RIGHT:
-            cursorRight();
-            break;
-        case ENTER:
-            cursorAddPoint();
-            break;
-        case 'p':
-        case 'P':
-            if(working == nullptr) {
-                working = new Point();
+            case UP:
+                cursorUp();
+                break;
+            case DOWN:
+                cursorDown();
+                break;
+            case LEFT:
+                cursorLeft();
+                break;
+            case RIGHT:
+                cursorRight();
+                break;
+            case ENTER:
                 cursorAddPoint();
-            }
-            break;
-	case 'l':
-	case 'L':
-	    if(working == nullptr) {
-		working = new Line();
-		cursorAddPoint();
-	    }
-	    break;
-    case 'S':
-    case 's':            
-	    if(working == nullptr) {
-		working = new Square();
-		cursorAddPoint();
-	    }
-    case 'R':
-    case 'r':            
-	    if(working == nullptr) {
-		working = new Rectangle();
-		cursorAddPoint();
-	    }
-	    break;
-    case ESC:
-        if(_parent) ((Application*)_parent)->running(false);
-        break;            
+                break;
+            case 'p':
+            case 'P':
+                if(working == nullptr) {
+                    working = new Point();
+                    cursorAddPoint();
+                }
+                break;
+            case 'l':
+            case 'L':
+                if(working == nullptr) {
+                    working = new Line();
+                    cursorAddPoint();
+                }
+                break;
+            case 'R':
+            case 'r':
+                if(working == nullptr) {
+                    working = new Rectangle();
+                    cursorAddPoint();
+                }
+                break;
+            case 'S':
+            case 's':
+                if(working == nullptr) {
+                    working = new Square();
+                    cursorAddPoint();
+                }
+                break;
+            case 'C':
+            case 'c':
+                if(working == nullptr) {
+                    working = new Circle();
+                    cursorAddPoint();
+                }
+                break;
+            case ESC:
+                if(_parent) ((Application*)_parent)->running(false);
+                break;
         }
+
         display();
     }
 }
 
 
 //some parenting magic
-void 
+void
 Canvas::parent(Widget *_parent)
 {
     Widget::parent(_parent);
 
     if(_parent) {
-        //copy width and height 
+        //copy width and height
         width(_parent->width());
         height(_parent->height());
 
@@ -117,7 +127,7 @@ Canvas::parent(Widget *_parent)
 
 
 //cursor movement commands
-void 
+void
 Canvas::cursorUp()
 {
     //clear the cursor
@@ -129,7 +139,7 @@ Canvas::cursorUp()
 }
 
 
-void 
+void
 Canvas::cursorDown()
 {
     //clear the cursor
@@ -141,7 +151,7 @@ Canvas::cursorDown()
 }
 
 
-void 
+void
 Canvas::cursorLeft()
 {
     //clear the cursor
@@ -153,7 +163,7 @@ Canvas::cursorLeft()
 }
 
 
-void 
+void
 Canvas::cursorRight()
 {
 
