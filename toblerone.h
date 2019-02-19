@@ -1,12 +1,12 @@
 //Line class, draw a line between two points!
-#ifndef LINE_H
-#define LINE_H
+#ifndef TOBLERONE_H
+#define TOBLERONE_H
 #include "shape.h"
 
-class Line : public Shape
+class Toblerone : public Shape
 {
 public:
-    Line(); //public constructor
+    Toblerone(); //public constructor
 
     //required widget functions
     virtual void display();
@@ -25,6 +25,3 @@ private:
 };
 
 #endif
-
-
-

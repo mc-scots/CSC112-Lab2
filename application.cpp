@@ -25,7 +25,7 @@ Application::Application()
 
 
 //event handling
-void 
+void
 Application::handleEvent(Event *e)
 {
     //pass the event to our child (if we have one)
@@ -36,7 +36,7 @@ Application::handleEvent(Event *e)
 
 
 //drawing functions
-void 
+void
 Application::display()
 {
     //we will assume that we want the cursor off
@@ -47,11 +47,11 @@ Application::display()
         child()->display();
     }
 }
-  
+
 
 //retrievrand dispatch events until the applicstion is no longer
 //running.
-void 
+void
 Application::eventLoop()
 {
     int w;
@@ -67,7 +67,7 @@ Application::eventLoop()
 
     //run until told to stop.  Poll for events at a rate of
     //once per milisecond
-    while(running()) 
+    while(running())
     {
         //check for a keyboard event
         if(kin.hasInput()) {
@@ -106,26 +106,26 @@ Application::child()
 }
 
 
-void 
+void
 Application::child(Widget *_child)
 {
     this->_child = _child;
 
-    // add a parent to the child 
+    // add a parent to the child
     if(this->child()) {
         this->child()->parent(this);
     }
 }
 
 
-bool 
+bool
 Application::running()
 {
     return _running;
 }
 
 
-void 
+void
 Application::running(bool _running)
 {
     this->_running = _running;
@@ -143,7 +143,7 @@ KeyboardEvent::KeyboardEvent(keycode kc)
 }
 
 
-std::string 
+std::string
 KeyboardEvent::type()
 {
     return "keyboard";
